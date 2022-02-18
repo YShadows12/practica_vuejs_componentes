@@ -26,7 +26,6 @@
 
         </div>
 
-        <script type="text/x-template" id="editForm"></script>
 
 
         <!-- Plantilla para el componente edit-form -->
@@ -43,9 +42,16 @@
         <!-- Plantilla para el componente item-data -->
         <script type="text/x-template" id="itemData">
 
-            <!--
-                 TODO: Componente item-data
-            -->
+            <div class="card" >
+                <div class="card-body" v-show="datos">
+                  <dl v-for="d in item.data" :itemdata="d">
+                    <dt>{{d.Prompt}}</dt>
+                    <dd>{{d.Value}}</dd>       
+                  </dl>
+                
+                  <a class="btn btn-primary" v-bind:href="item.href" role="button">Ver</a>
+                  <button class="btn btn-secondary"  v-on:click="toggleEditFormVisibility" >Editar</button>
+              </div>
 
         </script>
 
